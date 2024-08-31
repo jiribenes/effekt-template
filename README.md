@@ -7,7 +7,7 @@
 
 - [x] VSCode extension recommendation for Effekt
 - [x] Nix flake
-- [ ] Nix-based CI
+- [x] Nix-based CI
 - [x] .gitignore for Nix & Effekt
 - [x] folder structure
 - [x] example test
