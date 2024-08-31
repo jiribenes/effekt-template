@@ -1,0 +1,5 @@
+module main
+
+import lib
+
+def main(): Unit = println(helloWorld())
