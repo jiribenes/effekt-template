@@ -14,3 +14,4 @@
 - [ ] example main
 - [ ] example "library"
 - [ ] documentation
+- [ ] envrc for direnv
