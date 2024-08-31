@@ -9,10 +9,10 @@
 - [x] Nix flake
 - [ ] Nix-based CI
 - [x] .gitignore for Nix & Effekt
-- [ ] folder structure
-- [ ] example test
-- [ ] example main
-- [ ] example "library"
+- [x] folder structure
+- [x] example test
+- [x] example main
+- [x] example "library"
 - [ ] documentation
 - [ ] envrc for direnv
 - [ ] test things out
