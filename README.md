@@ -5,13 +5,14 @@
 
 ### TODO
 
-- [ ] VSCode extension recommendation for Effekt
-- [ ] Nix flake
+- [x] VSCode extension recommendation for Effekt
+- [x] Nix flake
 - [ ] Nix-based CI
-- [ ] .gitignore for Nix & Effekt
+- [x] .gitignore for Nix & Effekt
 - [ ] folder structure
 - [ ] example test
 - [ ] example main
 - [ ] example "library"
 - [ ] documentation
 - [ ] envrc for direnv
+- [ ] test things out
