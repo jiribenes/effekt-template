@@ -16,3 +16,4 @@
 - [ ] documentation
 - [ ] envrc for direnv
 - [ ] test things out
+- [ ] MIT LICENSE

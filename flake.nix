@@ -1,7 +1,7 @@
 {
   description = "Nix template for Effekt projects";
 
-  inputs.effekt-nix.url = "github:jiribenes/effekt-nix";
+  inputs.effekt-nix.url = "github:jiribenes/effekt-nix/package";
   
   outputs = { self, nixpkgs, effekt-nix }:
     let
@@ -16,9 +16,9 @@
       packages.${system}.default = effekt-lib.buildEffektPackage {
         pname = "effekt-template";   # Package name
         version = "0.1.0";           # Package version
-        src = ./src;                 # Source folder
-        main = ./main.effekt;        # relative path to entrypoint
-        tests = [ ./test.effekt ];   # relative paths to tests
+        src = ./.;                 # Source folder
+        main = "./src/main.effekt";        # relative path to entrypoint
+        tests = [ "./src/mytest.effekt" ];   # relative paths to tests
 
         inherit effektVersion backends;
       };
