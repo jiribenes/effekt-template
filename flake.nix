@@ -1,7 +1,7 @@
 {
   description = "Nix template for Effekt projects";
 
-  inputs.effekt-nix.url = "github:jiribenes/effekt-nix/package";
+  inputs.effekt-nix.url = "github:jiribenes/effekt-nix";
   
   outputs = { self, nixpkgs, effekt-nix }:
     let
