@@ -21,7 +21,7 @@
 
         # You can set a fixed Effekt version and your supported backends here:
         effektVersion = "0.3.0";
-        backends = with effekt-lib.effektBackends; [ js chez-lift ];
+        backends = with effekt-lib.effektBackends; [ js ];
       in {
         packages.default = effekt-lib.buildEffektPackage {
           pname = "effekt-template";   # Package name
