@@ -1,30 +1,41 @@
 {
   description = "Nix template for Effekt projects";
 
-  inputs.effekt-nix.url = "github:jiribenes/effekt-nix";
-  
-  outputs = { self, nixpkgs, effekt-nix }:
-    let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-      effekt-lib = effekt-nix.lib.${system};
-
-      # You can set a fixed Effekt version and your supported backends here:
-      effektVersion = "0.3.0";
-      backends = with effekt-lib.effektBackends; [ js ];
-    in {
-      packages.${system}.default = effekt-lib.buildEffektPackage {
-        pname = "effekt-template";   # Package name
-        version = "0.1.0";           # Package version
-        src = ./.;                 # Source folder
-        main = "./src/main.effekt";        # relative path to entrypoint
-        tests = [ "./src/mytest.effekt" ];   # relative paths to tests
-
-        inherit effektVersion backends;
-      };
-
-      devShells.${system}.default = effekt-lib.mkDevShell {
-        inherit effektVersion backends;
-      };
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    effekt-nix = {
+      url = "github:jiribenes/effekt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows ="flake-utils";
     };
+  };
+
+  outputs = { self, nixpkgs, flake-utils, effekt-nix }:
+    # If you want only some specific systems, do the following instead:
+    # flake-utils.lib.eachSystem ["aarch64-linux" "aarch64-darwin"] (system:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+        effekt-lib = effekt-nix.lib.${system};
+
+        # You can set a fixed Effekt version and your supported backends here:
+        effektVersion = "0.3.0";
+        backends = with effekt-lib.effektBackends; [ js chez-lift ];
+      in {
+        packages.default = effekt-lib.buildEffektPackage {
+          pname = "effekt-template";   # Package name
+          version = "0.1.0";           # Package version
+          src = ./.;                 # Source folder
+          main = "./src/main.effekt";        # relative path to entrypoint
+          tests = [ "./src/mytest.effekt" ];   # relative paths to tests
+
+          inherit effektVersion backends;
+        };
+
+        devShells.default = effekt-lib.mkDevShell {
+          inherit effektVersion backends;
+        };
+      }
+    );
 }
