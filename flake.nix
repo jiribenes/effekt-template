@@ -24,11 +24,11 @@
         backends = with effekt-lib.effektBackends; [ js ];
       in {
         packages.default = effekt-lib.buildEffektPackage {
-          pname = "effekt-template";   # Package name
-          version = "0.1.0";           # Package version
-          src = ./.;                 # Source folder
-          main = "./src/main.effekt";        # relative path to entrypoint
-          tests = [ "./src/mytest.effekt" ];   # relative paths to tests
+          pname = "effekt-template";         # Package name
+          version = "0.1.0";                 # Package version
+          src = ./.;                         # Source folder
+          main = "./src/main.effekt";        # relative path to entrypoint (as a string)
+          tests = [ "./src/mytest.effekt" ]; # relative paths to tests (as a string)
 
           inherit effektVersion backends;
         };
