@@ -28,7 +28,7 @@
           version = "0.1.0";               # Package version
           src = ./.;                       # Source folder
           main = "src/main.effekt";        # relative path to entrypoint (as a string)
-          tests = [ "src/mytest.effekt" ]; # relative paths to tests (as a string)
+          tests = [ "src/test.effekt" ]; # relative paths to tests (as a string)
 
           inherit effektVersion backends;
         };

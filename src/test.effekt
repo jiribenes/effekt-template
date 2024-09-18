@@ -1,4 +1,4 @@
-module src/mytest
+module src/test
 
 import test
 import src/lib
