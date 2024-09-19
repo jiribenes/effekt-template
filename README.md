@@ -1,89 +1,120 @@
-# Effekt template
+# Effekt Template
 
 > [!WARNING]
 > This is a work-in-progress.
 
-## First Steps
+This template provides a starting point for Effekt projects.
 
-You cloned the template, congratulations. Now it's time to do the following:
-1. Change the name in the license in `LICENSE` (or change the license altogether).
-2. Go to `flake.nix` and rename your project name. If needed, tweak the other values.
-3. Clone this repository locally
+## Table of contents
+- [First Steps](#first-steps)
+- [Useful Commands](#useful-commands)
+  - [Effekt Commands](#effekt-commands)
+  - [Nix-related Commands](#nix-related-commands)
+- [Example Projects](#example-projects-using-this-template)
+- [Repository Structure](#repository-structure)
+- [CI](#ci)
 
-### Useful commands
+---
 
-#### Run the main file
+## First steps
+
+After cloning this template, follow these steps to set up your project:
+
+1. Update the license:
+   - Open `LICENSE` and change the name (or replace the license entirely).
+
+2. Customize the project:
+   - Open `flake.nix` and update the project name and other relevant values (follow the comments).
+
+3. Set up your development environment:
+   - Clone this repository locally.
+   - Open it in VSCode.
+   - Install the Effekt VSCode extension offered in the pop-up in the bottom right.
+
+## Useful commands
+
+### Effekt commands
+
+Run the main file:
 ```sh
 effekt src/main.effekt
 ```
-uses the JavaScript backend to run the main file.
+This (like many other Effekt commands) uses the JavaScript backend by default.
+To use a different backend, add the `--backend <backend>` flag.
 
-If you want a different backend, use the `--backend <backend>` flag.
-Call `effekt --help` to see all of the backends
-
-#### Run the tests
-
+Run the tests:
 ```sh
 effekt src/test.effekt
 ```
-uses the JavaScript backend to run the tests. See how to select a different backend above.
 
-#### REPL
-
+Open the REPL:
 ```sh
 effekt
 ```
-on its own just opens the REPL.
 
-#### Build the project
-
+Build the project:
 ```sh
-# if `src/main.effekt` is the main entrypoint
 effekt --build src/main.effekt
 ```
-uses the JavaScript backend to build the project into `out/`. See how to select a different backend above.
+This builds the project into the `out/` directory, creating a runnable file `out/main`.
 
-As output, there should be a runnable file `out/main`.
-
-#### Nix-related commands
-
-There's no need to install Nix because of this template, but Nix does provide a few nice things:
-
+To see all available options and backends, run:
 ```sh
-# Update the dependencies (ran automatically on the CI)
+effekt --help
+```
+
+### Nix-related commands
+
+While Nix installation is optional, it provides several benefits:
+
+Update dependencies (also runs automatically in CI):
+```sh
 nix flake update
+```
 
-# Open up a shell with all of the necessary dependencies, correct Effekt version, etc. without needing to install them.
+Open a shell with all necessary dependencies:
+```sh
 nix develop
+```
 
-# Run the main entry point directly
+Run the main entry point:
+```sh
 nix run
+```
 
-# Build this project, the output is in `result/bin/`
+Build the project (output in `result/bin/`):
+```sh
 nix build
 ```
 
 ## Example projects using this template
 
 - [`effekt-stm`](https://github.com/jiribenes/effekt-stm)
-- this very project, see Description of the repo below
+- This very project!
 
-## Description of the repo
+## Repository structure
 
-TODO
+- `.github/workflows/*.yml`: Contains the [CI](#ci) definitions
+- `src/`: Contains the source code
+  - `main.effekt`: Main entry point
+  - `test.effekt`: Entry point for tests
+  - `lib.effekt`: Library code imported by `main` and `test`
+- `flake.nix`: Package configuration in a Nix flake
+- `flake.lock`: Auto-generated lockfile for dependencies
+- `LICENSE`: Project license
+- `README`: This README file
 
-- `src/` includes:
-   - a `main.effekt` file serving as the main entry point
-   - a `test.effekt` file serving as the main entry point for tests
-   - a `lib.effekt` file which is imported in `main` and `test`
+## CI
 
-### CI
+Two GitHub Actions are set up:
 
-There are two GitHub Actions set-up:
-- `flake-check` checks the `flake.nix` file, tries to build and test everything
-    - runs on demand, on `main`, and on PRs
-    - if you want to run something custom, add a step which:
-        - use `nix run -- <args>` to run the main endpoint,
-        - and/or `nix develop -c '<some bash command>'` to run whatever you want in the correct environment 
-- `update-flake-lock` updates the versions of packages used in `flake.nix`
-    - runs on demand and weekly every Monday at 06:00 UTC
+1. `flake-check`:
+   - Checks the `flake.nix` file, builds and tests the project
+   - Runs on demand, on `main`, and on PRs
+   - To run custom commands, add a step using:
+     - `nix run -- <ARGS>` to run the main entry point with the given arguments
+     - `nix develop -c '<bash command to run>'` to run commands in the correct environment
+
+2. `update-flake-lock`:
+   - Updates package versions in `flake.nix`
+   - Runs on demand and weekly (Mondays at 06:00 UTC)
