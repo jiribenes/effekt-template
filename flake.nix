@@ -17,7 +17,7 @@
     # flake-utils.lib.eachSystem ["aarch64-linux" "aarch64-darwin"] (system:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs { inherit system; };
         effekt-lib = effekt-nix.lib.${system};
 
         ## Project configuration
