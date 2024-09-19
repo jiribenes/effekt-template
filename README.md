@@ -3,6 +3,10 @@
 > [!WARNING]
 > This is a work-in-progress.
 
+### Example projects using this template
+
+- [`effekt-stm`](https://github.com/jiribenes/effekt-stm)
+
 ### TODO
 
 - [x] VSCode extension recommendation for Effekt
