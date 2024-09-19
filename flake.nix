@@ -30,7 +30,7 @@
         # effektVersion = "0.3.0";
         #
         # then replace `effekt = latestEffekt;` below (twice!) with `inherit effektVersion;`
-        backends = with effekt-lib.effektBackends; [ js ];
+
       in {
         packages.default = effekt-lib.buildEffektPackage {
           pname = "effekt-template";     # package name
