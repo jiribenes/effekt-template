@@ -13,7 +13,7 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, effekt-nix }:
-    # If you want only some specific systems, do the following instead:
+    ## If you want only some specific systems, do the following instead:
     # flake-utils.lib.eachSystem ["aarch64-linux" "aarch64-darwin"] (system:
     flake-utils.lib.eachDefaultSystem (system:
       let
