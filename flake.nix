@@ -19,22 +19,33 @@
         pkgs = nixpkgs.legacyPackages.${system};
         effekt-lib = effekt-nix.lib.${system};
 
-        # You can set a fixed Effekt version and your supported backends here:
-        effektVersion = "0.3.0";
+        # This project uses only the JS backend.
+        backends = with effekt-lib.effektBackends; [ js ];
+
+        # This project uses the latest released Effekt version.
+        latestEffekt = effekt-nix.packages.${system}.default;
+
+        # If you want, you can set a fixed Effekt version instead with:
+        #
+        # effektVersion = "0.3.0";
+        #
+        # then replace `effekt = latestEffekt;` below (twice!) with `inherit effektVersion;`
         backends = with effekt-lib.effektBackends; [ js ];
       in {
         packages.default = effekt-lib.buildEffektPackage {
-          pname = "effekt-template";       # Package name
-          version = "0.1.0";               # Package version
-          src = ./.;                       # Source folder
-          main = "src/main.effekt";        # relative path to entrypoint (as a string)
+          pname = "effekt-template";     # package name
+          version = "0.1.0";             # package version
+          src = ./.;                     # source folder
+          main = "src/main.effekt";      # relative path to entrypoint (as a string)
           tests = [ "src/test.effekt" ]; # relative paths to tests (as a string)
 
-          inherit effektVersion backends;
+          effekt = latestEffekt;
+          inherit backends;
         };
 
         devShells.default = effekt-lib.mkDevShell {
-          inherit effektVersion backends;
+          effekt = latestEffekt;
+          inherit backends;
         };
       }
     );
