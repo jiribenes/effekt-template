@@ -1,11 +1,12 @@
 # Effekt Template
 
 > [!WARNING]
-> This is a work-in-progress.
+> This is a work-in-progress, feel free to contribute!
 
 This template provides a starting point for Effekt projects.
 
 ## Table of contents
+
 - [First steps](#first-steps)
 - [Useful commands](#useful-commands)
   - [Effekt commands](#effekt-commands)
