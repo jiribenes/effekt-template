@@ -18,18 +18,18 @@ This template provides a starting point for Effekt projects.
 
 ## First steps
 
-After cloning this template, follow these steps to set up your project:
+After using this template, follow these steps to set up your project:
 
-1. Update the license:
-   - Open `LICENSE` and change the name (or replace the license entirely).
-
-2. Customize the project:
-   - Open `flake.nix` and update the project name and other relevant values (follow the comments).
-
-3. Set up your development environment:
+1. Set up your development environment:
    - Clone this repository locally.
    - Open it in VSCode.
    - Install the Effekt VSCode extension offered in the pop-up in the bottom right.
+
+2. Customize the project:
+   - Open `flake.nix` and update the project name and other relevant values (follow the comments).
+   - Push your `flake.nix` file after the changes and see if the CI agrees.
+
+3. Replace this `README` with your own!
 
 ## Useful commands
 
