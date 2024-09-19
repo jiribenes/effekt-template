@@ -6,12 +6,12 @@
 This template provides a starting point for Effekt projects.
 
 ## Table of contents
-- [First Steps](#first-steps)
-- [Useful Commands](#useful-commands)
-  - [Effekt Commands](#effekt-commands)
-  - [Nix-related Commands](#nix-related-commands)
-- [Example Projects](#example-projects-using-this-template)
-- [Repository Structure](#repository-structure)
+- [First steps](#first-steps)
+- [Useful commands](#useful-commands)
+  - [Effekt commands](#effekt-commands)
+  - [Nix-related commands](#nix-related-commands)
+- [Example projects](#example-projects-using-this-template)
+- [Repository structure](#repository-structure)
 - [CI](#ci)
 
 ---
