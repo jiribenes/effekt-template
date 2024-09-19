@@ -6,7 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     effekt-nix = {
-      url = "github:jiribenes/effekt-nix/getEffekt";
+      url = "github:jiribenes/effekt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows ="flake-utils";
     };
