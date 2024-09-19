@@ -1,11 +1,12 @@
 {
+  # TODO: Change to your project's description:
   description = "Nix template for Effekt projects";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     effekt-nix = {
-      url = "github:jiribenes/effekt-nix";
+      url = "github:jiribenes/effekt-nix/getEffekt";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows ="flake-utils";
     };
@@ -19,33 +20,40 @@
         pkgs = nixpkgs.legacyPackages.${system};
         effekt-lib = effekt-nix.lib.${system};
 
-        # This project uses only the JS backend.
-        backends = with effekt-lib.effektBackends; [ js ];
+        ## Project configuration
+        # TODO: Change to your project's details:
+        pname = "effekt-template";         # package name
+        version = "0.1.0";                 # package version
+        mainFile = "src/main.effekt";      # relative path to entrypoint (as a string)
+        testFiles = [ "src/test.effekt" ]; # relative paths to tests (as a string)
 
-        # This project uses the latest released Effekt version.
-        latestEffekt = effekt-nix.packages.${system}.default;
+        ## Effekt configuration
+        effektConfig = {
+          ## Uncomment and set a specific version if needed:
+          # version = "0.3.0";
+          backends = with effekt-lib.effektBackends; [ js ];
+        };
 
-        # If you want, you can set a fixed Effekt version instead with:
-        #
-        # effektVersion = "0.3.0";
-        #
-        # then replace `effekt = latestEffekt;` below (twice!) with `inherit effektVersion;`
-
+        # Chooses the correct Effekt package.
+        effektBuild = effekt-lib.getEffekt effektConfig;
       in {
         packages.default = effekt-lib.buildEffektPackage {
-          pname = "effekt-template";     # package name
-          version = "0.1.0";             # package version
-          src = ./.;                     # source folder
-          main = "src/main.effekt";      # relative path to entrypoint (as a string)
-          tests = [ "src/test.effekt" ]; # relative paths to tests (as a string)
+          inherit pname version;
+          src = ./.;
+          main = mainFile;
+          tests = testFiles;
 
-          effekt = latestEffekt;
-          inherit backends;
+          effekt = effektBuild;
+          inherit (effektConfig) backends;
         };
 
         devShells.default = effekt-lib.mkDevShell {
-          effekt = latestEffekt;
-          inherit backends;
+          effekt = effektBuild;
+        };
+
+        apps.default = flake-utils.lib.mkApp {
+          drv = self.packages.${system}.default;
+          name = pname;
         };
       }
     );
