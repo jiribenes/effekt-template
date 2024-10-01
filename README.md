@@ -120,12 +120,3 @@ Two GitHub Actions are set up:
 2. `update-flake-lock`:
    - Updates package versions in `flake.nix`
    - Runs on demand and weekly (Mondays at 06:00 UTC)
-
-## Caveats
-
-By backend:
-
-- 🏆 JS: works perfectly
-- 🥈 LLVM: the testing framework doesn't work, otherwise builds work fine
-- 🌱 Chez backends don't work: cannot just run `scheme` in the resulting script, we need to patch that
-- 🤷 MLton is hard to test as it's not packaged in Nixpkgs on M1
