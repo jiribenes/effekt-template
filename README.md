@@ -14,7 +14,6 @@ This template provides a starting point for Effekt projects.
 - [Example projects](#example-projects-using-this-template)
 - [Repository structure](#repository-structure)
 - [CI](#ci)
-- [Caveats](#caveats)
 
 ---
 
@@ -32,6 +31,7 @@ After using this template, follow these steps to set up your project:
    - Push your `flake.nix` file after the changes and see if the CI agrees.
 
 3. Replace this `README` with your own!
+   - Please link back to this repo if you can :)
 
 ## Useful commands
 
