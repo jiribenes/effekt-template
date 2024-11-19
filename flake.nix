@@ -1,5 +1,5 @@
 {
-  # TODO: Change to your project's description:
+  ## TODO: Change to your project's description:
   description = "Nix template for Effekt projects";
 
   inputs = {
@@ -30,7 +30,9 @@
         ## Effekt configuration
         effektConfig = {
           ## Uncomment and set a specific version if needed:
-          # version = "0.3.0";
+          # version = "0.10.0";
+
+          ## Select the backends that your project works on:
           backends = with effekt-lib.effektBackends; [ js ];
         };
 
