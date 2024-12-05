@@ -37,7 +37,6 @@ After using this template, follow these steps to set up your project:
    - See the [CI](#ci) section for more details
 
 3. Replace this `README` with your own!
-   - Please link back to this repo if you can :)
 
 ## Useful commands
 
