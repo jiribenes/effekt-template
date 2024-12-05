@@ -30,9 +30,10 @@ After using this template, follow these steps to set up your project:
    - Open `flake.nix` and update the project name and other relevant values (follow the comments).
    - Push your `flake.nix` file after the changes and see if the CI agrees.
 
-3. Set-up auto-update CI:
-   - Go to Settings -> Actions -> General and check "Allow GitHub Actions to create and approve pull requests"
-     in order to get weekly Pull Requests on Tuesday that update the Effekt version in CI.
+3. Set-up auto-update CI in order to get weekly PRs on Tuesday which update the Effekt version in CI:
+   - Go to Settings -> Actions -> General:
+     - and set "Workflow permissions" to "Read and write permissions"
+     - and check "Allow GitHub Actions to create and approve pull requests"    
    - See the [CI](#ci) section for more details
 
 3. Replace this `README` with your own!
