@@ -11,11 +11,11 @@
         "sbt-derivation": "sbt-derivation"
       },
       "locked": {
-        "lastModified": 1742198279,
-        "narHash": "sha256-tbNTujgMGq8PFKOXUyuagNoAyvswAmO1HcT+M7UZ9Y0=",
+        "lastModified": 1742797667,
+        "narHash": "sha256-f9da6iR3q3pA5eklWeTYoWKeQZtCCOuLZo8hMnga1XQ=",
         "owner": "jiribenes",
         "repo": "effekt-nix",
-        "rev": "c194009741745a41cce748430ffecce106ad88c5",
+        "rev": "3723fb93690d33ba68e48fc98a3a60ae3d7530b4",
         "type": "github"
       },
       "original": {
@@ -44,11 +44,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1742206328,
-        "narHash": "sha256-q+AQ///oMnyyFzzF4H9ShSRENt3Zsx37jTiRkLkXXE0=",
+        "lastModified": 1742800061,
+        "narHash": "sha256-oDJGK1UMArK52vcW9S5S2apeec4rbfNELgc50LqiPNs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "096478927c360bc18ea80c8274f013709cf7bdcd",
+        "rev": "1750f3c1c89488e2ffdd47cab9d05454dddfb734",
         "type": "github"
       },
       "original": {
