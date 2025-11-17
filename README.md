@@ -96,7 +96,7 @@ nix build
 
 ## Example projects using this template
 
-- [`effekt-stm`](https://github.com/jiribenes/effekt-stm)
+- [see the `effekt-community` GitHub organization](https://github.com/effekt-community/)
 - This very project!
 
 ## Repository structure
