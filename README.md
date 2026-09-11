@@ -119,9 +119,9 @@ Two GitHub Actions are set up:
    - Checks the `flake.nix` file, builds and tests the project
    - Runs on demand, on `main`, and on PRs
    - To run custom commands, add a step using:
-     - `nix run -- <ARGS>` to run the main entry point with the given arguments
-     - `nix develop -c '<bash command to run>'` to run commands in the correct environment
+     - `nix run . -- <ARGS>` to run the main entry point with the given arguments
+     - `nix develop -c <command> <ARGS>` to run a command in the correct environment
 
 2. `update-flake-lock`:
-   - Updates package versions in `flake.nix`
+   - Updates package versions in `flake.lock`
    - Runs on demand and weekly (Tuesdays at 00:00 UTC)
