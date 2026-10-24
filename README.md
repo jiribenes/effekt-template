@@ -93,6 +93,16 @@ Build the project (output in `result/bin/`):
 nix build
 ```
 
+Build the project with another of its backends:
+```sh
+nix build .#effekt-template-llvm
+```
+
+For a website (`bs.js-web`), uncomment `serve` in `flake.nix` and preview it:
+```sh
+nix run .#serve
+```
+
 ## Example projects using this template
 
 - [see the `effekt-community` GitHub organization](https://github.com/effekt-community/)
@@ -115,7 +125,7 @@ nix build
 Two GitHub Actions are set up:
 
 1. `flake-check`:
-   - Checks the `flake.nix` file, builds and tests the project
+   - Checks the `flake.nix` file, builds and tests the project with each of its backends
    - Runs on demand, on `main`, and on PRs
    - To run custom commands, add a step using:
      - `nix run . -- <ARGS>` to run the main entry point with the given arguments
