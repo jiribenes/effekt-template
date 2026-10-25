@@ -95,7 +95,7 @@ nix build
 
 Build the project with another of its backends:
 ```sh
-nix build .#effekt-template-llvm
+nix build .#llvm
 ```
 
 For a website (`bs.js-web`), uncomment `serve` in `flake.nix` and preview it:
@@ -122,7 +122,7 @@ nix run .#serve
 
 ## CI
 
-Two GitHub Actions are set up:
+Three GitHub Actions are set up:
 
 1. `flake-check`:
    - Checks the `flake.nix` file, builds and tests the project with each of its backends
@@ -134,3 +134,7 @@ Two GitHub Actions are set up:
 2. `update-flake-lock`:
    - Updates package versions in `flake.lock`
    - Runs on demand and weekly (Tuesdays at 00:00 UTC)
+
+3. `pages`:
+   - Publishes the website (`bs.js-web` backend) to GitHub Pages
+   - Runs on demand only, unless you uncomment its `push` trigger (+ enable GitHub Pages in the repository's settings)

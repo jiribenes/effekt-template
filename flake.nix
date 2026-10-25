@@ -53,13 +53,16 @@
             effekt = effektBuild;
             inherit (effektConfig) backends;
           };
+
+          variants = effekt-lib.variantsOf package;
         in {
-          ## The package, plus one for each backend (such as 'effekt-template-llvm')
-          packages = effekt-lib.flakePackages package // {
+          ## The package, plus one for each backend (such as 'llvm')
+          packages = variants // {
             default = package;
 
-            ## For a website ('bs.js-web' backend), uncomment for a preview with 'nix run .#serve':
-            # serve = effekt-lib.serveSite { site = package; };
+            ## For a website ('bs.js-web' backend), uncomment for a preview with 'nix run .#serve'
+            ## (and enable '.github/workflows/pages.yml' to publish it):
+            # serve = effekt-lib.serveSite { site = variants.js-web; };
           };
 
           devShell = effekt-lib.mkDevShell {
