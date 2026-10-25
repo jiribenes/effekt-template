@@ -3,7 +3,7 @@
 > [!WARNING]
 > This is a work-in-progress, feel free to contribute!
 
-This template provides a starting point for Effekt projects.
+This template provides a starting point for [Effekt](https://effekt-lang.org) projects using [effekt-nix](https://github.com/jiribenes/effekt-nix).
 
 ## Table of contents
 
@@ -115,7 +115,7 @@ nix run .#serve
   - `main.effekt`: Main entry point
   - `test.effekt`: Entry point for tests
   - `lib.effekt`: Library code imported by `main` and `test`
-- `flake.nix`: Package configuration in a Nix flake
+- `flake.nix`: Package configuration in a Nix flake using [effekt-nix](https://github.com/jiribenes/effekt-nix)
 - `flake.lock`: Auto-generated lockfile for dependencies
 - `LICENSE`: Project license
 - `README`: This README file
