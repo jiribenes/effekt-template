@@ -33,7 +33,7 @@
         # version = "0.82.0";
 
         ## Select the backends that your project works on (CI builds and tests each one):
-        backends = bs: [ bs.js bs.llvm ];
+        backends = bs: [ bs.js ];
       };
 
       perSystem = system:
